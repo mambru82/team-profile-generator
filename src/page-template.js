@@ -28,10 +28,12 @@ const generateRosterCards = rosterArr => {
 
     const managerArrayHtml = managerArray.map(({name, id, email, role, officeNumber}) => {
         return `
-        <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">${role}</div>
-            <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+        <div class="card col-4 text-white bg-secondary mb-3" style="max-width: 18rem;">
+            <div class="card-header bg-primary text-center">
+                <h5>${name}</h5>
+                <h5>&#9749; ${role}</h5>
+            </div>
+            <div class="card-body bg-light text-dark">
                 <p class="card-text">ID: ${id}</p>
                 <p class="card-text">EMAIL: <a href="mailto:${email}">${email}</a></p>
                 <p class="card-text">Office Number: ${officeNumber}</p>
@@ -43,9 +45,11 @@ const generateRosterCards = rosterArr => {
     const engineerArrayHtml = engineerArray.map(({name, id, email, role, github}) => {
         return `
         <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">${role}</div>
-            <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+        <div class="card-header bg-primary text-center">
+                <h5>${name}</h5>
+                <h5>&#128083; ${role}</h5>
+        </div>
+        <div class="card-body bg-light text-dark">
                 <p class="card-text">ID: ${id}</p>
                 <p class="card-text">EMAIL: <a href="mailto:${email}">${email}</a></p>
                 <p class="card-text">GITHUB: <a href="https://github.com/${github}">${github}</a></p>
@@ -57,11 +61,13 @@ const generateRosterCards = rosterArr => {
     const internArrayHtml = internArray.map(({name, id, email, role, school}) => {
         return `
         <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
-            <div class="card-header">${role}</div>
-            <div class="card-body">
-                <h5 class="card-title">${name}</h5>
+            <div class="card-header bg-primary text-center">
+                    <h5>${name}</h5>
+                    <h5>👨‍🎓 ${role}</h5>
+            </div>
+            <div class="card-body bg-light text-dark">
                 <p class="card-text">ID: ${id}</p>
-                <p class="card-text"><a href="mailto:${email}">${email}</a></p>
+                <p class="card-text">EMAIL: <a href="mailto:${email}">${email}</a></p>
                 <p class="card-text">School:${school}</p>
             </div>
         </div>
