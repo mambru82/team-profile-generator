@@ -1,5 +1,6 @@
 const generateRosterCards = rosterArr => {
     //get array of managers
+    console.log(rosterArr);
     const managerArray = rosterArr.filter(roster => {
         if(roster.officeNumber) {
             return true
@@ -27,45 +28,48 @@ const generateRosterCards = rosterArr => {
 
     const managerArrayHtml = managerArray.map(({name, id, email, role, officeNumber}) => {
         return `
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">${role}</div>
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">ID: ${id}</p>
-                <p class="card-text"><a href="mailto:${email}">${email}</a></p>
-                <p class="card-text">Office Number:${officeNumber}</p>
+                <p class="card-text">EMAIL: <a href="mailto:${email}">${email}</a></p>
+                <p class="card-text">Office Number: ${officeNumber}</p>
+            </div>
         </div>
         `
     })
 
     const engineerArrayHtml = engineerArray.map(({name, id, email, role, github}) => {
         return `
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">${role}</div>
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">ID: ${id}</p>
-                <p class="card-text"><a href="mailto:${email}">${email}</a></p>
-                <p class="card-text"><a href="https://github.com/${github}">GitHub:${github}</a></p>
+                <p class="card-text">EMAIL: <a href="mailto:${email}">${email}</a></p>
+                <p class="card-text">GITHUB: <a href="https://github.com/${github}">${github}</a></p>
+            </div>
         </div>
         `
     })
 
     const internArrayHtml = internArray.map(({name, id, email, role, school}) => {
         return `
-        <div class="card text-white bg-primary mb-3" style="max-width: 18rem;">
+        <div class="card col-4 text-white bg-primary mb-3" style="max-width: 18rem;">
             <div class="card-header">${role}</div>
             <div class="card-body">
                 <h5 class="card-title">${name}</h5>
                 <p class="card-text">ID: ${id}</p>
                 <p class="card-text"><a href="mailto:${email}">${email}</a></p>
                 <p class="card-text">School:${school}</p>
+            </div>
         </div>
         `
     })
 
     return `
-    <section class="flex-row justify-space-between">
+    <section class="row justify-content-evenly">
     ${managerArrayHtml.join('')}
     ${engineerArrayHtml.join('')}
     ${internArrayHtml.join('')}
@@ -92,12 +96,12 @@ module.exports = roster => {
 
     <body>
         <header class="container">
-            <div class="row">            
-                <h1 class="col-12">My Team</h1>
+            <div class="row justify-content-center">            
+                <h1 class="col-12 bg-danger text-center">My Team</h1>
             </div>
         </header>
         <main class="container">
-            <div class="row">
+            <div class="container">
                 ${generateRosterCards(roster)}
             </div>
         </main>

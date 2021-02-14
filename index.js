@@ -1,9 +1,11 @@
 const Roster = require('./lib/Roster');
+const generatePage = require('./src/page-template.js')
+const { writeFile, copyFile } = require('./util/generate-site.js')
 
 new Roster().generateTeamRoster()
-    .then(roster => {
-        console.table(roster);
-        return generatePage(roster);
+    .then(generateTeamRosterResponse => {
+        console.table(generateTeamRosterResponse);
+        return generatePage(generateTeamRosterResponse);
     })
     .then(pageHTML => {
         return writeFile(pageHTML)
